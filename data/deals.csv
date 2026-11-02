@@ -1,0 +1,9 @@
+id,company,sector,stage,probability,revenue_cents,enterprise_value_cents,ebitda_cents,owner,next_action
+D-01,Cedar Labs,Fintech,Screening,0.25,300000000,1350000000,54000000,Sam,Review revenue bridge
+D-02,Ember Labs,Analytics,Diligence,0.55,400000000,1800000000,72000000,Jordan,Schedule diligence review
+D-03,Northstar Labs,B2B SaaS,Negotiation,0.8,500000000,2250000000,90000000,Alex,Confirm data room access
+D-04,Harbor Labs,Fintech,Sourcing,0.1,600000000,2700000000,108000000,Sam,Review revenue bridge
+D-05,Orchid Labs,Analytics,Screening,0.25,700000000,3150000000,126000000,Jordan,Schedule diligence review
+D-06,Summit Labs,B2B SaaS,Diligence,0.55,800000000,3600000000,144000000,Alex,Confirm data room access
+D-07,Juniper Labs,Fintech,Negotiation,0.8,900000000,4050000000,162000000,Sam,Review revenue bridge
+D-08,Quartz Labs,Analytics,Sourcing,0.1,1000000000,4500000000,180000000,Jordan,Schedule diligence review
