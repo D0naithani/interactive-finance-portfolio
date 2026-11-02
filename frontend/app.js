@@ -47,7 +47,7 @@ function render(data){const s=data.summary;let metrics='';
  }
  if(project==='gro'){
   metrics=metric('Active opportunities',s.deals,'Filter by stage to focus the review')+metric('Enterprise value pipeline',money(s.pipeline_cents),'Sum of illustrative enterprise values')+metric('Probability-weighted pipeline',money(s.weighted_pipeline_cents),'Sum of value × stage probability');
-  table(['Opportunity','Sector','Stage','Revenue','EV / Revenue','Probability','Owner'],data.rows.map(r=>[`<button class="row-button" data-deal="${esc(r.id)}">${esc(r.company)}</button>`,esc(r.sector),badge(r.stage),money(r.revenue_cents),`${r.ev_revenue_multiple}×`,`${r.probability*100}%`,esc(r.owner)]));
+  table(['Opportunity','Sector','Stage','Revenue','EV / Revenue','Probability','Owner'],data.rows.map(r=>[`<button class="row-button" data-deal="${esc(r.id)}">${esc(r.company)}</button>`,esc(r.sector),badge(r.stage),money(r.revenue_cents),`${r.ev_revenue_multiple}×`,`${Math.round(r.probability*100)}%`,esc(r.owner)]));
   document.querySelectorAll('[data-deal]').forEach(el=>el.onclick=async()=>{const v=requestNumber;try{const d=await api(`/api/deals/${encodeURIComponent(el.dataset.deal)}`);if(v!==requestNumber)return;$('detail').innerHTML=`<h3>${esc(d.deal.company)} / Deal workspace</h3><p>Next action: ${esc(d.deal.next_action)} · Owner: ${esc(d.deal.owner)}</p><p>${d.workflow.map(esc).join(' → ')}</p><h4>Product requirements & acceptance criteria</h4><ul>${d.requirements.map(r=>`<li><b>${esc(r.feature)}</b> — ${esc(r.acceptance)}</li>`).join('')}</ul><p>Architecture: browser → FastAPI → pandas → synthetic CSV sources. Persistent workflow and audit storage are future production extensions.</p>`;}catch(e){$('detail').textContent=e.message;}});
  }
  if(project==='kpi'){
